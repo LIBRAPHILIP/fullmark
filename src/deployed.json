@@ -1,0 +1,11 @@
+{
+  "primitive": "Fullmark",
+  "version": "1.0.1-fullmark",
+  "address": "0x5189fA75697efe0Be604E87034639053705C48F0",
+  "chainId": 61999,
+  "network": "studionet",
+  "deployTx": "0x7aafd5336cba6ed87369d21a4e0aad4263bda5dea688c89665a89ac85455b59e",
+  "explorer": "https://explorer-studio.genlayer.com/address/0x5189fA75697efe0Be604E87034639053705C48F0",
+  "deployedAt": "2026-11-19T07:27:12.987Z",
+  "deployer": "0x822024b5fE34A17Be5f0848Dc6e0d3A5Bdcedac1"
+}

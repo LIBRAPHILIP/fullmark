@@ -1,0 +1,20 @@
+{
+  "address": "0x5189fA75697efe0Be604E87034639053705C48F0",
+  "bountyId": "0",
+  "status": "PAID",
+  "settlement_basis": "record_approved",
+  "escrow_wei": "0",
+  "source": "https://pointercrate.com/api/v1/records/12672/",
+  "record_id": "12672",
+  "player_id": "575",
+  "demon_id": "1",
+  "progress": "100",
+  "record_status": "approved",
+  "record_date": "2018-05-25T12:00:00Z",
+  "fresh": "0",
+  "video": "https://www.youtube.com/watch?v=oo9ZYGJZCwk",
+  "payee": "0x822024b5fe34a17be5f0848dc6e0d3a5bdcedac1",
+  "openTx": "0x78ce5e219075c40410fc45117168f14770dde064d1a0200bee8baee8bddbb9e1",
+  "claimTx": "0xe3c50ae0fa95f8772e3274e774a60640093f9ab8adca67828dc63308d00ef76e",
+  "checkedAt": "2026-11-19T07:27:54.485Z"
+}
