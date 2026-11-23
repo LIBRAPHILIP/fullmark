@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fullmark — list record escrow</title>
+    <meta
+      name="description"
+      content="Fullmark escrows a demon-list prize on GenLayer. GEN moves only when Pointercrate's own record is approved for the pinned player, demon, and progress."
+    />
+    <meta name="theme-color" content="#14110c" />
+    <link rel="icon" href="/fullmark/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,680&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@380;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/fullmark/assets/index-C1r9abSV.js"></script>
+    <link rel="stylesheet" crossorigin href="/fullmark/assets/index-BIDiACzu.css">
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <header class="top">
+      <a class="brand" href="#open">
+        <img src="/fullmark/favicon.svg" alt="" width="36" height="36" />
+        <span>Fullmark</span>
+      </a>
+      <p class="brand-note">Gaming · Outcome verification</p>
+      <nav>
+        <a href="#open">Open a bounty</a>
+        <a href="#desk">Desk</a>
+        <a href="#rules">Rules</a>
+        <a id="githubLink" href="https://github.com/LIBRAPHILIP/fullmark">GitHub</a>
+      </nav>
+      <div class="session">
+        <label class="sr" for="networkSelect">Network</label>
+        <select id="networkSelect">
+          <option value="studionet">Studionet</option>
+          <option value="bradbury">Bradbury</option>
+          <option value="localnet">Localnet</option>
+        </select>
+        <button type="button" class="ghost" id="btnEphemeral">Ephemeral account</button>
+        <button type="button" class="solid" id="btnWallet">Connect wallet</button>
+      </div>
+    </header>
+
+    <section class="hero" id="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="pip" id="healthPip"></span><span id="healthText">Checking Studionet</span></p>
+        <h1>The list approves the clear. The purse already has a wallet.</h1>
+        <p class="lede">
+          A demon-list bounty is usually a sentence in a chat, and the proof is a screenshot.
+          Fullmark locks the GEN when the sponsor names a demon, a player, and a progress bar.
+          Validators re-fetch the Pointercrate record. The page cannot type the result.
+        </p>
+        <dl class="facts">
+          <div><dt>Pays</dt><dd>Approved record, same ids, progress at the bar</dd></div>
+          <div><dt>Refunds</dt><dd>Deadline, bounty still open</dd></div>
+          <div><dt>Decides</dt><dd>No LLM. The record object.</dd></div>
+        </dl>
+      </div>
+      <figure class="seal-wrap">
+        <div class="seal-stage">
+          <canvas id="listfield" aria-hidden="true"></canvas>
+          <svg class="seal" viewBox="0 0 200 200" aria-hidden="true">
+          <circle class="seal-track" cx="100" cy="100" r="74" />
+          <circle class="seal-arc" cx="100" cy="100" r="74" />
+          <circle class="seal-core" cx="100" cy="100" r="52" />
+          <rect class="seal-bead" x="154" y="42" width="16" height="16" rx="2" transform="rotate(18 162 50)" />
+        </svg>
+        </div>
+        <figcaption>
+          <img src="/fullmark/mark.jpg" alt="Fullmark seal, a metal ring with a short chartreuse arc and an amber bead" />
+          <span>Standing prize or a fresh completion. The arc is not a vote.</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <main>
+      <section class="panel" id="open">
+        <div class="panel-head">
+          <h2>Open a bounty</h2>
+          <p>The pins below are written into the contract with the deposit. After that, the sponsor cannot change the player, the demon, or the bar.</p>
+        </div>
+        <form id="openForm">
+          <div class="grid-2">
+            <label>Label <input id="label" maxlength="48" required value="EnvY record 12672" /></label>
+            <label>Payee <input id="payee" spellcheck="false" placeholder="0x payee" required /></label>
+          </div>
+          <label>Note <input id="note" maxlength="160" value="Standing prize. File Pointercrate record 12672. Fresh is off." /></label>
+          <div class="grid-3">
+            <label>Demon id <input id="demonId" inputmode="numeric" required value="1" /></label>
+            <label>Player id <input id="playerId" inputmode="numeric" required value="575" /></label>
+            <label>Minimum progress <input id="minProgress" inputmode="numeric" required value="100" /></label>
+          </div>
+          <div class="grid-3">
+            <label>Window
+              <select id="fresh">
+                <option value="0" selected>Standing — any approved record</option>
+                <option value="1">Fresh — completion on or after the open</option>
+              </select>
+            </label>
+            <label>Deposit, GEN <input id="amount" inputmode="decimal" value="0.02" required /></label>
+            <label>Deadline
+              <select id="deadline">
+                <option value="86400" selected>1 day</option>
+                <option value="3600">1 hour</option>
+                <option value="604800">7 days</option>
+                <option value="120">2 minutes — refund drill</option>
+              </select>
+            </label>
+          </div>
+          <label>Record id for the preview
+            <input id="previewRecord" inputmode="numeric" value="12672" />
+          </label>
+          <p class="hint" id="localPreview">Preview reads Pointercrate in this browser. The claim reads it again inside the contract.</p>
+          <div class="row-actions">
+            <button type="button" class="ghost" id="btnUseAccount">Put my account on the payee</button>
+            <button type="button" class="ghost" id="btnPreview">Preview the record</button>
+            <button type="submit" class="solid" id="btnOpen">Lock this bounty</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel" id="sessionPanel">
+        <div class="panel-head">
+          <h2>Contract</h2>
+          <p id="accountLine">No account yet. An ephemeral Studionet account can be funded from the studio faucet.</p>
+        </div>
+        <div class="contract-row">
+          <label class="grow">Address
+            <input id="contractAddress" spellcheck="false" placeholder="0x Fullmark contract" />
+          </label>
+          <button type="button" class="ghost" id="btnBind">Bind</button>
+          <button type="button" class="ghost" id="btnDeploy">Deploy</button>
+          <button type="button" class="ghost" id="btnFaucet">Fund account</button>
+        </div>
+        <p class="hint" id="metaLine">Meta loads after the address is bound.</p>
+        <form id="loadForm" class="load-row">
+          <label>Load bounty id <input id="loadId" inputmode="numeric" placeholder="0" /></label>
+          <button type="submit" class="ghost">Load</button>
+        </form>
+      </section>
+
+      <section id="desk">
+        <div class="panel-head">
+          <h2>Desk</h2>
+          <p>Bounties are read from the contract after each accepted receipt. A card turns paid only when the stored status says so.</p>
+        </div>
+        <div id="bountyList"></div>
+      </section>
+
+      <section class="panel" id="rules">
+        <div class="panel-head">
+          <h2>What the contract will and will not do</h2>
+          <p>The desk is a window. These rules are the ones in <code>contracts/fullmark.py</code>.</p>
+        </div>
+        <div class="rule-grid">
+          <article>
+            <h3>Contract-built URL</h3>
+            <p>Claim takes a record id. The contract fetches <code>https://pointercrate.com/api/v1/records/&lt;id&gt;/</code>. The slash is part of the path. A sponsor cannot pass a URL.</p>
+          </article>
+          <article>
+            <h3>Ids, not names</h3>
+            <p>Player id, demon id, progress, status, the banned flag, and the completion timestamp decide the purse. Names and list positions do not. Positions move while a bounty is open.</p>
+          </article>
+          <article>
+            <h3>Approved, or nothing</h3>
+            <p>Status must be approved, progress must meet the bar, and the player must not be banned. A pending or rejected record leaves the bounty open.</p>
+          </article>
+          <article>
+            <h3>Fresh window</h3>
+            <p>A standing prize accepts any approved record. A fresh prize requires the completion timestamp on the record to be on or after the open. The host clock is not used.</p>
+          </article>
+          <article>
+            <h3>Fail closed</h3>
+            <p>An unreadable body, a 404, or a Cloudflare page does not pay and does not refund early. After the deadline the sponsor withdraws.</p>
+          </article>
+          <article>
+            <h3>Unwind</h3>
+            <p>Sponsor and payee can both consent before the deadline. One signature is not enough, unless they are the same account.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <aside class="tape" id="life" aria-live="polite">
+      <div class="tape-phases" id="lifePhases">
+        <span data-phase="submitting">Submitted</span>
+        <span data-phase="consensus">Round</span>
+        <span data-phase="accepted">Accepted</span>
+        <span data-phase="finality">Final</span>
+      </div>
+      <p id="lifeMessage">No transaction yet. Open, claim, refund, consent, and unwind each wait for an accepted receipt.</p>
+      <p class="tape-links">
+        <a id="lifeTx" hidden target="_blank" rel="noopener"></a>
+        <button type="button" class="ghost tiny" id="btnRefreshTx" hidden>Refresh status</button>
+        <button type="button" class="ghost tiny" id="btnAppeal" hidden>Appeal</button>
+        <button type="button" class="ghost tiny" id="btnFinalize" hidden>Finalize</button>
+      </p>
+      <dl id="lifeFacts"></dl>
+    </aside>
+  </body>
+</html>
