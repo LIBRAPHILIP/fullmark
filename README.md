@@ -6,7 +6,9 @@ Primary tag: Gaming. Tag 1: Outcome verification. No LLM.
 
 Studionet contract `0x5189fA75697efe0Be604E87034639053705C48F0`, version `1.0.1-fullmark`. Bounty 0 is paid on record 12672. Source: https://github.com/LIBRAPHILIP/fullmark
 
-There is no public web host yet. The Vercel CLI has no credentials on this machine. `npm run dev` serves the desk.
+Live desk: https://libraphilip.github.io/fullmark/
+
+`npm run dev` serves the same desk locally. The Vercel CLI has no credentials on this machine, so the public copy is GitHub Pages.
 
 The contract builds `https://pointercrate.com/api/v1/records/<id>/`. The caller does not submit the progress, the status, or the URL. Names and list positions are not decision fields.
 

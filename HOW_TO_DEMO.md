@@ -2,6 +2,8 @@
 
 Studionet chain id is 61999. The contract version is `1.0.1-fullmark`. `get_meta.llm_rule` is `none`.
 
+Live desk: https://libraphilip.github.io/fullmark/
+
 Contract: `0x5189fA75697efe0Be604E87034639053705C48F0`
 
 The paid demo is bounty 0. Open `0x78ce5e219075c40410fc45117168f14770dde064d1a0200bee8baee8bddbb9e1`. Claim `0xe3c50ae0fa95f8772e3274e774a60640093f9ab8adca67828dc63308d00ef76e`. The read-back is `deployments/live-check.json`: `PAID`, `record_approved`, escrow 0.
