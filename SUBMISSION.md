@@ -50,6 +50,6 @@ Studionet, chain 61999. Contract version `1.0.1-fullmark`. `get_meta.llm_rule` i
 
 Live read after the claim, stored in `deployments/live-check.json`: bounty 0 is `PAID`, basis `record_approved`, escrow `0`. Source `https://pointercrate.com/api/v1/records/12672/`. Record 12672, demon 1, player 575, progress 100, status approved, date `2018-05-25T12:00:00Z`, fresh off, video `https://www.youtube.com/watch?v=oo9ZYGJZCwk`.
 
-Live app: https://libraphilip.github.io/fullmark/
+Live app: https://fullmark-roan.vercel.app
 
-The page binds `0x5189fA75697efe0Be604E87034639053705C48F0` from `src/deployed.json`. GitHub Pages serves the `gh-pages` branch. The Vercel CLI on this machine has no credentials.
+The page binds `0x5189fA75697efe0Be604E87034639053705C48F0` from `src/deployed.json`. `fullmark.vercel.app` is already taken. A second copy is at https://libraphilip.github.io/fullmark/.

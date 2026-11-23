@@ -2,7 +2,7 @@
 
 Studionet chain id is 61999. The contract version is `1.0.1-fullmark`. `get_meta.llm_rule` is `none`.
 
-Live desk: https://libraphilip.github.io/fullmark/
+Live desk: https://fullmark-roan.vercel.app
 
 Contract: `0x5189fA75697efe0Be604E87034639053705C48F0`
 
